@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('notes');
+    return view('welcome');
 });
 Route::get('add', function () {
     return view('add');
@@ -20,9 +20,15 @@ Route::get('add', function () {
 Route::get('edit', function () {
     return view('edit');
 });
-// Route::get('notas', function () {
-//     return 'notas';
-// });
+Route::get('notes', function () {
+    $notes = [
+        'Primer Nota',
+        'Segunda Nota',
+        'Tercer Nota',
+        'Cuarta Nota'
+    ];
+    return view('notes', ['notes' => $notes]);
+});
 // Route::get('notas/actualización', function () {
 //     return 'actualización';
 // });

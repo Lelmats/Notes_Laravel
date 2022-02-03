@@ -1,38 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{{ asset('static/css/app.css') }}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-<body>
-    <div class="wrap">
-        <header class="head">
-            <a href="#" class="logo"></a>
-
-            <nav class="main-nav">
-                <ul class="main-nav-list">
-                    <li class="main-nav-item">
-                        <a href="/static/notes.html" class="main-nav-link">
-                            <i class="icon icon-th-list"></i>
-                            <span>Ver notas</span>
-                        </a>
-                    </li>
-                    <li class="main-nav-item active">
-                        <a href="/static/add-note.html" class="main-nav-link">
-                            <i class="icon icon-pen"></i>
-                            <span>Editar nota</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </header>
+@extends("layout")
+@section("content")
         <main class="content">
             <div class="cards">
                 <div class="card card-center">
                     <div class="card-body">
-                        <h1>Nueva nota</h1>
+                        <h1>Edit Note</h1>
 
                         <form action="">
                             <label for="title" class="field-label">Título: </label>
@@ -41,23 +13,10 @@
                             <label for="content" class="field-label">Contenido:</label>
                             <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
 
-                            <button type="submit" class="btn btn-primary">Crear nota</button>
+                            <button type="submit" class="btn btn-primary">Create note</button>
                         </form>
                     </div>
                 </div>
             </div>
         </main>
-        <footer class="foot">
-            <div class="ad">
-                <p>
-                    Esta aplicación es desarrollada en el curso BASE DE DATOS II
-                    <a href="#">ING EN PRODUCCIÓN MULTIMEDIA</a>.
-                </p>
-            </div>
-            <div class="license">
-                <p>© 2022 Derechos Reservados - ULSA NOROESTE</p>
-            </div>
-        </footer>
-    </div>
-</body>
-</html>
+@endsection
