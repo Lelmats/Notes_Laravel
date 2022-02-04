@@ -2,7 +2,7 @@
 @section("content")
 <main class="content">
             <div class="cards">
-            @foreach ($notes as $note)
+                @forelse  ($notes as $note)
                 <div class="card card-small">
                     <div class="card-body">
                             <h4> {{ $note }}</h4>
@@ -20,7 +20,9 @@
                             </a>
                         </footer>
                     </div>
-                @endforeach
+                @empty
+                    <p>No hay notas Disponibles <a href="{{url('add')}}">Agregar una?</a></p>
+                @endforelse
                 <div class="card card-small">
                     <div class="card-body">
                         <h4>¿Para qué sirve Composer?</h4>

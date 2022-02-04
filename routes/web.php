@@ -12,15 +12,6 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('add', function () {
-    return view('add');
-});
-Route::get('edit', function () {
-    return view('edit');
-});
-Route::get('notes', function () {
     $notes = [
         'Primer Nota',
         'Segunda Nota',
@@ -28,7 +19,15 @@ Route::get('notes', function () {
         'Cuarta Nota'
     ];
     return view('notes', ['notes' => $notes]);
-});
+})->name('list');
+
+Route::get('add', function () {
+    return view('add');
+})->name('adding');
+Route::get('edit', function () {
+    return view('edit');
+})->name('edition');
+
 // Route::get('notas/actualización', function () {
 //     return 'actualización';
 // });

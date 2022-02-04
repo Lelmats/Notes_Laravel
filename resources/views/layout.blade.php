@@ -12,20 +12,20 @@
             <a href="#" class="logo"></a>
             <nav class="main-nav">
                 <ul class="main-nav-list">
-                    <li class="main-nav-item">
-                        <a href="/static/notes.html" class="main-nav-link">
+                    <li class="main-nav-item {{url()->current() == route('list') ? 'active' : ''}}">
+                        <a href="{{url('/')}}" class="main-nav-link">
                             <i class="icon icon-th-list"></i>
                             <span>My notes</span>
                         </a>
                     </li>
-                    <li class="main-nav-item active">
-                        <a href="/static/add-note.html" class="main-nav-link">
+                    <li class="main-nav-item {{url()->current() == route('adding') ? 'active' : ''}}">
+                        <a href="{{url('add')}}" class="main-nav-link">
                             <i class="icon icon-pen"></i>
-                            <span>Nueva note</span>
+                            <span>New note</span>
                         </a>
                     </li>
-                    <li class="main-nav-item active">
-                        <a href="/static/add-note.html" class="main-nav-link">
+                    <li class="main-nav-item {{url()->current() == route('edition') ? 'active' : ''}}">
+                        <a href="{{url('edit')}}" class="main-nav-link">
                             <i class="icon icon-pen"></i>
                             <span>Edit note</span>
                         </a>
