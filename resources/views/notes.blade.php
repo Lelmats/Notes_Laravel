@@ -2,7 +2,7 @@
 @section("content")
 <main class="content">
             <div class="cards">
-                @forelse  ($notes as $note)
+                @forelse ($notes as $note)
                 <div class="card card-small">
                     <div class="card-body">
                             <h4> {{ $note }}</h4>

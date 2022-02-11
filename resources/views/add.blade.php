@@ -4,7 +4,7 @@
             <div class="cards">
                 <div class="card card-center">
                     <div class="card-body">
-                        <h1>Nueva nota</h1>
+                        <h1>New note</h1>
 
                         <form action="">
                             <label for="title" class="field-label">Título: </label>
@@ -13,7 +13,7 @@
                             <label for="content" class="field-label">Contenido:</label>
                             <textarea name="content" id="content" rows="10" class="field-textarea"></textarea>
 
-                            <button type="submit" class="btn btn-primary">Crear nota</button>
+                            <button type="submit" class="btn btn-primary">Create nota</button>
                         </form>
                     </div>
                 </div>
