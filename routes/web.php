@@ -12,31 +12,20 @@
 */
 
 Route::get('/', function () {
-    $notes = [
-        'Primer Nota',
-        'Segunda Nota',
-        'Tercer Nota',
-        'Cuarta Nota'
-    ];
-    return view('notes', ['notes' => $notes]);
-})->name('list');
+    $notas = DB::table('notes') ->get();
+
+    return view('notes', ['notes' => $notas]);
+}) -> name('list');
+
 
 Route::get('add', function () {
     return view('add');
 })->name('adding');
-Route::get('edit', function () {
-    return view('edit');
-})->name('edition');
 
-// Route::get('notas/actualización', function () {
-//     return 'actualización';
-// });
-// Route::get('notas/notas_imagenes', function () {
-//     return 'notas imagenes';
-// });
-// Route::get('notas/listados', function () {
-//     return 'listados';
-// });
-// Route::get('notas/calendario', function () {
-//     return 'calendario';
-// });
+Route::get('notes/{id}/edit', function($id){
+    $notas = DB::table('notes')
+    ->where('id', $id)
+    ->first();
+    
+    return view('edit', ['notes' => $notas]);
+})->name('notes.edit');
