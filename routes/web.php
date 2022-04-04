@@ -14,34 +14,18 @@ use App\Models\Notes;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+
 */
 
-Route::get('/', function () {
-    $notes = DB::table('notes') ->get();
+Route::get('ex', function () {
+    return view('welcome');
+});
 
-    return view('notes', ['notes' => $notes]);
-}) -> name('list');
+Route::get('/', 'NotesController@index') -> name('notes.index');
 
 
-Route::get('add', function () {
-    return view('add');
-})->name('adding');
+Route::get('add', 'NotesController@add' )->name('notes.adding');
 
-Route::post('create',function (Request $request){
-    Notes::create([
-        'titulo' => $request->input('title'),
-        'contenido' => $request->input('content')
-        ]);
+Route::post('create', 'NotesController@create')->name('notes.store');
 
-        return redirect('/notes');
-
- })->name('notes.store');
-
-Route::get('notes/{id}/edit', function($id){
-    $notes = DB::table('notes')
-    ->where('id', $id)
-    ->first();
-    
-    return view('edit', ['notes' => $notes]);
-})->name('notes.edit');
+Route::get('notes/{id}/edit', 'NotesController@edit')->name('notes.edit');
