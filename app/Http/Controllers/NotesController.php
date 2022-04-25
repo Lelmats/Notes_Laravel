@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Notes;
+use Illuminate\Validation\Rules\RequiredIf;
 
 class NotesController extends Controller
 {
@@ -21,14 +22,20 @@ class NotesController extends Controller
             'contenido' => $request->input('content')
             ]);
     
-            return redirect('/notes');
+            return redirect('/');
     
     }
     public function edit($id){
-        $notes = DB::table('notes')
-        ->where('id', $id)
-        ->first();
+        $notes = Notes::find($id);
         
         return view('edit', ['notes' => $notes]);
+    }
+    public function update(Notes $notes, Request $request){
+        $notes->update([
+            'titulo' => $request->input('title'),
+            'contenido' => $request->input('content'),
+        ]);
+
+        return redirect('/');
     }
 }

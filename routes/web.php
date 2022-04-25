@@ -17,15 +17,14 @@ use App\Models\Notes;
 
 */
 
-Route::get('ex', function () {
-    return view('welcome');
-});
+Route::get('ex', function () { return view('welcome'); });
 
 Route::get('/', 'NotesController@index') -> name('notes.index');
-
 
 Route::get('add', 'NotesController@add' )->name('notes.adding');
 
 Route::post('create', 'NotesController@create')->name('notes.store');
 
 Route::get('notes/{id}/edit', 'NotesController@edit')->name('notes.edit');
+
+Route::put('notes/{id}/edit', 'NotesController@update')->name('notes.update');
