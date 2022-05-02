@@ -28,3 +28,5 @@ Route::post('create', 'NotesController@create')->name('notes.store');
 Route::get('notes/{id}/edit', 'NotesController@edit')->name('notes.edit');
 
 Route::put('notes/{id}/edit', 'NotesController@update')->name('notes.update');
+
+Route::delete('notes/{id}', 'NotesController@destroy')->name('notes.destroy');

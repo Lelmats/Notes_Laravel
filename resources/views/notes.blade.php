@@ -14,13 +14,16 @@
             </div>
 
             <footer class="card-footer">
-                <a href="{{ route ('notes.edit', ['id' => $note->id]) }} " class="action-link action-edit">
-                    <i class="icon icon-pen"></i>
-                </a>
-                <a href = 'delete/{{ $note->id }}' class="action-link action-delete">
-                    <i class="icon icon-trash"></i>
-                </a>
-            </footer>
+                        <a href= "{{ route ('notes.edit', ['id' => $note->id]) }} " class="action-link action-edit">                            <i class="icon icon-pen"></i>
+                        </a>
+                        <form method="POST" action= "{{ url("notes/{$note->id}") }}">
+                            @csrf
+                            @method('DELETE')
+                            <a class="action-link action-delete">
+                                <button class="action-link action-delete"><i class="icon icon-trash"></i> <button>
+                            </a>
+                        </form>
+                    </footer>
         </div>
 
         @empty

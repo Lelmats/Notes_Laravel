@@ -38,4 +38,12 @@ class NotesController extends Controller
 
         return redirect('/');
     }
+    public function destroy($id)
+    {
+        $notes = Notes::find($id);
+
+        $notes->delete();
+
+        return redirect('/');
+    }
 }
